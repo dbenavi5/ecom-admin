@@ -18,7 +18,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { toast } from "react-hot-toast";
+import { useToast } from "@/components/ui/use-toast";
+// import { toast } from "react-hot-toast";
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -28,6 +29,8 @@ export const StoreModal = () => {
   const storeModal = useStoreModal();
 
   const [loading, setLoading] = useState(false);
+
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,11 +43,19 @@ export const StoreModal = () => {
     try {
       //TODO:  add data to db
       setLoading(true);
-      const response = await axios.post('/api/stores', values);
+      const response = await axios.post("/api/stores", values);
 
       window.location.assign(`/${response.data.id}`);
+      toast({
+        title: 'Store Created',
+        variant: 'success'
+      })
     } catch (error) {
-      toast.error("Something went wrong");
+      // toast.error("Something went wrong");
+      toast({
+        title: 'Something went wrong',
+        variant: 'destructive',
+      })
     } finally {
       setLoading(false);
     }

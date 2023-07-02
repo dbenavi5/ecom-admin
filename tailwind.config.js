@@ -30,8 +30,12 @@ module.exports = {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        success: {
+          DEFAULT: "hsla(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
+          DEFAULT: "hsla(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
