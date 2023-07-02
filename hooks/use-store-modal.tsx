@@ -6,6 +6,7 @@ interface useStoreModalStore {
   onClose: () => void;
 }
 
+// Store Open and Close Management
 export const useStoreModal = create<useStoreModalStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
