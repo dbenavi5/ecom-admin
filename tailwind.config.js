@@ -33,10 +33,12 @@ module.exports = {
         success: {
           DEFAULT: "hsla(var(--success))",
           foreground: "hsl(var(--success-foreground))",
+          background: "hsla(151, 73%, 55%, 0.2)",
         },
         destructive: {
-          DEFAULT: "hsla(var(--destructive))",
+          DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+          background: "hsla(0 84.2% 60.2% 0.2)",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
