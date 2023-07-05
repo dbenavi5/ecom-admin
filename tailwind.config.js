@@ -31,14 +31,14 @@ module.exports = {
           foreground: "hsl(var(--secondary-foreground))",
         },
         success: {
-          DEFAULT: "hsla(var(--success))",
+          DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
           background: "hsla(151, 73%, 55%, 0.2)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
-          background: "hsla(0 84.2% 60.2% 0.2)",
+          background: "hsla(0, 84.2%, 60.2%, 0.4)",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
