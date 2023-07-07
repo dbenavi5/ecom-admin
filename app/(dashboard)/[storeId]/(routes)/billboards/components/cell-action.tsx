@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import axios from "axios";
 import { useState } from "react";
@@ -73,25 +73,23 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             <span className="sr-only">Open Menu</span>
             <MoreHorizontal className="h-4  w-4" />
           </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align='end'>
-                  <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                  <DropdownMenuItem
-                      onClick={()=>onCopy(data.id)}
-                  >
-                      <Copy className='h-4 w-4 mr-2'/> Copy ID
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                      onClick={()=> router.push(`/${params.storeId}/billboards/${data.id}`)}
-                  >
-                      <Edit className='h-4 w-4 mr-2' /> Update
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                      onClick={()=> setOpen(true)}
-                  >
-                      <Trash className='h-4 w-4 mr-2' /> Delete
-                  </DropdownMenuItem>
-              </DropdownMenuContent>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuItem onClick={() => onCopy(data.id)}>
+            <Copy className="h-4 w-4 mr-2" /> Copy ID
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() =>
+              router.push(`/${params.storeId}/billboards/${data.id}`)
+            }
+          >
+            <Edit className="h-4 w-4 mr-2" /> Update
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setOpen(true)}>
+            <Trash className="h-4 w-4 mr-2" /> Delete
+          </DropdownMenuItem>
+        </DropdownMenuContent>
       </DropdownMenu>
     </>
   );
