@@ -6,9 +6,11 @@ import { Heading } from "@/components/ui/heading";
 import { Separator } from "@radix-ui/react-separator";
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
+import { BillboardColumn, columns } from "./column";
+import { DataTable } from "@/components/ui/data-table";
 
 interface BillboardClientProps {
-  data: string;
+  data: BillboardColumn[];
 }
 
 export const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
@@ -30,6 +32,7 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
         </Button>
       </div>
       <Separator />
+      <DataTable searchKey="label" columns={columns} data={data} />
       <Heading title="API" description="API Calls for Billboards" />
       <Separator />
       <ApiList entityName="Billboards" entityIdName="billboardsId" />

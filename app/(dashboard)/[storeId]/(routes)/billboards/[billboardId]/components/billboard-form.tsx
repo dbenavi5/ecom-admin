@@ -54,7 +54,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 
   const form = useForm<BillboardFormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData || {
+    defaultValues: initialData ?? {
       label: "",
       imageUrl: "",
     },
@@ -65,11 +65,11 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
       setLoading(true);
       if (initialData) {
         await axios.patch(
-          `/api/${params.storeId}/billboards/${params.billboards}`,
+          `/api/${params.storeId}/billboards/${params.billboardId}`,
           data
         );
       } else {
-        await axios.patch(`/api/${params.storeId}/billboards`, data);
+        await axios.post(`/api/${params.storeId}/billboards`, data);
       }
       router.refresh();
       router.push(`/${params.storeId}/billboards`);
@@ -91,17 +91,17 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
     try {
       setLoading(true);
       await axios.delete(
-        `/api/${params.storeId}/billboards/${params.billboardsId}`
+        `/api/${params.storeId}/billboards/${params.billboardId}`
       );
       router.refresh();
-      router.push(`/api/${params.storeId}/billboards`);
+      router.push(`/${params.storeId}/billboards`);
       toast({
-        title: "Store deleted",
+        title: "Billboard deleted",
         variant: "success",
       });
     } catch (error) {
       toast({
-        title: "Make sure you removed all products and categories first.",
+        title: "Make sure you removed all categories using this billboard first.",
         variant: "destructive",
       });
     } finally {
