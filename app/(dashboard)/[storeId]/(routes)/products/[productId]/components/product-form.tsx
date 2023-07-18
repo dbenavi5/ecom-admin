@@ -28,11 +28,11 @@ import {
 import ImageUpload from "@/components/ui/image-upload";
 import {
   Select,
+  SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SelectContent } from "@radix-ui/react-select";
 import { Checkbox } from "@/components/ui/checkbox";
 
 const formSchema = z.object({

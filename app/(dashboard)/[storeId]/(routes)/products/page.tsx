@@ -5,7 +5,7 @@ import { formatter } from "@/lib/utils";
 import { ProductClient } from "./components/client";
 import { ProductColumn } from "./components/column";
 
-const Billboards = async ({ params }: { params: { storeId: string } }) => {
+const Products = async ({ params }: { params: { storeId: string } }) => {
   const products = await prismadb.product.findMany({
     where: {
       storeId: params.storeId,
@@ -41,4 +41,4 @@ const Billboards = async ({ params }: { params: { storeId: string } }) => {
   );
 };
 
-export default Billboards;
+export default Products;

@@ -78,7 +78,10 @@ export async function POST(req: Request, { params }: { params: { storeId: string
     }
 }
 
-export async function GET(req: Request, { params }: { params: { storeId: string } }) {
+export async function GET(
+    req: Request,
+    { params }: { params: { storeId: string } },
+) {
     try {
         const { searchParams } = new URL(req.url);
         const categoryId = searchParams.get('categoryId') || undefined;
@@ -98,7 +101,15 @@ export async function GET(req: Request, { params }: { params: { storeId: string 
                 sizeId,
                 isFeatured: isFeatured ? true : undefined,
                 isArchived: false,
-            }
+            }, include: {
+                images: true,
+                category: true,
+                color: true,
+                size: true,
+            },
+            orderBy: {
+                createdAt: 'desc',
+            },
         })
         return NextResponse.json(products);
     } catch (error) {
