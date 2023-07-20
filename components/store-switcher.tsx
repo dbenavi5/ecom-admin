@@ -71,8 +71,8 @@ export default function StoreSwitcher({
           aria-label="Select a store"
           className={cn("w-[200px] justify-between", className)}
         >
-          <StoreIcon className="mr-2 h-4 w-4" />
-          {currentStore?.label}
+          <StoreIcon className="mr-2 h-6 w-6" />
+          <div className="truncate block">{currentStore?.label}</div>
           <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>

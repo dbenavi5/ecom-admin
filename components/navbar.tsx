@@ -23,7 +23,7 @@ const Navbar = async () => {
     <div className="border-b">
       <div className="flex h-16 items-center px-4">
         <StoreSwitcher items={stores} />
-        <MainNav className="mx-6" />
+        <MainNav className="mx-6 overflow-y-scroll no-scrollbar" />
         <div className="ml-auto flex items-center space-x-4">
           <ThemeToggle />
           <UserButton afterSignOutUrl="/" />
