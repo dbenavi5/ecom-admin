@@ -98,6 +98,15 @@ export async function GET(req: Request, { params }: { params: { storeId: string 
                 sizeId,
                 isFeatured: isFeatured ? true : undefined,
                 isArchived: false,
+            },
+            include: {
+                images: true,
+                category: true,
+                size: true,
+                color: true,
+            },
+            orderBy: {
+                createdAt: 'desc',
             }
         })
         return NextResponse.json(products);

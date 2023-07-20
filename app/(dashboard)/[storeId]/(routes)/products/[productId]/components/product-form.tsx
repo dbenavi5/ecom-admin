@@ -31,8 +31,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectContent,
 } from "@/components/ui/select";
-import { SelectContent } from "@radix-ui/react-select";
 import { Checkbox } from "@/components/ui/checkbox";
 
 const formSchema = z.object({
@@ -49,15 +49,13 @@ const formSchema = z.object({
 type ProductFormValues = z.infer<typeof formSchema>;
 
 interface ProductFormProps {
-  initialData:
-    | (Product & {
-        images: Image[];
-      })
-    | null;
+  initialData: Product & {
+    images: Image[]
+  } | null;
   categories: Category[];
   colors: Color[];
   sizes: Size[];
-}
+};
 
 export const ProductForm: React.FC<ProductFormProps> = ({
   initialData,
