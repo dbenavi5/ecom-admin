@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /                  # Allow crawling of the homepage
+Disallow: /admin          # Disallow crawling of the admin dashboard
+Disallow: /private-data 
