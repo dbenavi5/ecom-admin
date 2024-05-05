@@ -3,6 +3,24 @@ import { NextResponse } from "next/server";
 
 import prismadb from "@/lib/prismadb";
 
+export async function GET(_req: Request, { params }: { params: { storeId: string } }) {
+    try {
+        if (!params.storeId) {
+            return new NextResponse('Store ID required', { status: 400 })
+        }
+
+        const storeName = await prismadb.store.findUnique({
+            where: {
+                id: params.storeId,
+            },
+        })
+        return NextResponse.json(storeName);
+    } catch (error) {
+        console.log('[STORE_GET]', error);
+        return new NextResponse('Internal Error', { status: 500 });
+    }
+}
+
 // Patch route - used for updating the store
 export async function PATCH(
     req: Request,

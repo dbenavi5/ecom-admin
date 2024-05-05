@@ -33,7 +33,7 @@ module.exports = {
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
-          background: "hsla(151, 73%, 55%, 0.2)",
+          background: "rgba(20, 110, 245, 0.15)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
